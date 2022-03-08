@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,user-scalable=no" />
-    <title>3D Carousel</title>
+    <title>Happy Women's Day</title>
     <style>
       * {
         margin: 0;
@@ -42,7 +42,7 @@
         transform: rotateX(-10deg);
       }
 
-      #drag-container img,
+      #drag-container div.item,
       #drag-container video {
         -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
@@ -60,7 +60,7 @@
           linear-gradient(transparent, transparent, #0005);
       }
 
-      #drag-container img:hover,
+      #drag-container div.item:hover,
       #drag-container video:hover {
         -webkit-box-shadow: 0 0 15px #fffd;
         box-shadow: 0 0 15px #fffd;
@@ -92,12 +92,6 @@
           #9993,
           transparent
         );
-      }
-
-      #music-container {
-        position: absolute;
-        top: 0;
-        left: 0;
       }
 
       @-webkit-keyframes spin {
@@ -150,23 +144,41 @@
         <!-- Add your images (or video) here -->
 
         <!-- Example image with link -->
+        <div class="item" style="background: url(./images/xuan0.jpeg) no-repeat; background-size: cover">
 
-        <img src="./images/xuan0.jpeg" alt="" />
-        <img src="./images/xuan1.jpeg" alt="" />
-        <img src="./images/xuan2.jpeg" alt="" />
-        <img src="./images/xuan3.jpeg" alt="" />
-        <img src="./images/xuan4.jpeg" alt="" />
-        <img src="./images/xuan5.jpeg" alt="" />
-        <img src="./images/xuan6.jpeg" alt="" />
-        <img src="./images/xuan7.jpeg" alt="" />
-        <img src="./images/xuan8.jpeg" alt="" />
-        <img src="./images/xuan9.jpeg" alt="" />
-        <!-- <img src="./images/xuan10.jpeg" alt="" />
-        <img src="./images/xuan11.jpeg" alt="" />
-        <img src="./images/xuan12.jpeg" alt="" />
-        <img src="./images/xuan13.jpeg" alt="" />
-        <img src="./images/xuan14.jpeg" alt="" />
-        <img src="./images/xuan15.jpeg" alt="" /> -->
+        </div>
+        <div class="item" style="background: url(./images/xuan2.jpeg) no-repeat; background-size: cover">
+
+        </div>
+        <div class="item" style="background: url(./images/xuan4.jpeg) no-repeat; background-size: cover">
+
+        </div>
+        <div class="item" style="background: url(./images/xuan5.jpeg) no-repeat; background-size: cover">
+
+        </div>
+        <div class="item" style="background: url(./images/xuan6.jpeg) no-repeat; background-size: cover">
+
+        </div>
+        <div class="item" style="background: url(./images/xuan7.jpeg) no-repeat; background-size: cover">
+
+        </div>
+        <div class="item" style="background: url(./images/xuan8.jpeg) no-repeat; background-size: cover">
+
+        </div>
+        <div class="item" style="background: url(./images/xuan10.jpeg) no-repeat; background-size: cover">
+
+        </div>
+        <div class="item" style="background: url(./images/xuan12.jpeg) no-repeat; background-size: cover">
+
+        </div>
+        <div class="item" style="background: url(./images/xuan13.jpeg) no-repeat; background-size: cover">
+
+        </div>
+        <div class="item" style="background: url(./images/xuan14.jpeg) no-repeat; background-size: cover">
+
+        </div>
+
+        
 
         <!-- Example add video  -->
         <!-- <video controls autoplay="autoplay" loop>
@@ -177,12 +189,10 @@
         </video> -->
 
         <!-- Text at center of ground -->
-        <p>3D Tiktok Carousel</p>
+        <p>Ánh Xuân</p>
       </div>
       <div id="ground"></div>
     </div>
-
-    <div id="music-container"></div>
 
     <script>
       // Author: Hoang Tran (https://www.facebook.com/profile.php?id=100004848287494)
@@ -192,30 +202,17 @@
       var radius = 240; // how big of the radius
       var autoRotate = true; // auto rotate or not
       var rotateSpeed = -60; // unit: seconds/360 degrees
-      var imgWidth = 120; // width of images (unit: px)
+      var imgWidth = 115; // width of images (unit: px)
       var imgHeight = 170; // height of images (unit: px)
 
-      // Link of background music - set 'null' if you dont want to play background music
-      var bgMusicURL =
-        "https://api.soundcloud.com/tracks/143041228/stream?client_id=587aa2d384f7333a886010d5f52f302a";
-      var bgMusicControls = true; // Show UI music control
-
-      /*
-     NOTE:
-       + imgWidth, imgHeight will work for video
-       + if imgWidth, imgHeight too small, play/pause button in <video> will be hidden
-       + Music link are taken from: https://hoangtran0410.github.io/Visualyze-design-your-own-/?theme=HauMaster&playlist=1&song=1&background=28
-       + Custom from code in tiktok video  https://www.facebook.com/J2TEAM.ManhTuan/videos/1353367338135935/
-*/
 
       // ===================== start =======================
       setTimeout(init, 100);
 
       var odrag = document.getElementById("drag-container");
       var ospin = document.getElementById("spin-container");
-      var aImg = ospin.getElementsByTagName("img");
-      var aVid = ospin.getElementsByTagName("video");
-      var aEle = [...aImg, ...aVid]; // combine 2 arrays
+      var aImg = ospin.getElementsByTagName("div");
+      var aEle = [...aImg]; // combine 2 arrays
 
       // Size of images
       ospin.style.width = imgWidth + "px";
@@ -270,16 +267,7 @@
         )}s infinite linear`;
       }
 
-      // add background music
-      if (bgMusicURL) {
-        document.getElementById("music-container").innerHTML += `
-<audio src="${bgMusicURL}" ${
-          bgMusicControls ? "controls" : ""
-        } autoplay loop>    
-<p>If you are reading this, it is because your browser does not support the audio element.</p>
-</audio>
-`;
-      }
+      
 
       // setup events
       document.onpointerdown = function (e) {
