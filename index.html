@@ -148,39 +148,33 @@
     <div id="drag-container">
       <div id="spin-container">
         <!-- Add your images (or video) here -->
-        
+
         <!-- Example image with link -->
 
-          <img
-            src="./images/xuan0.jpeg"
-            alt=""
-          />
-          <img
-            src="./images/xuan1.jpeg"
-            alt=""
-            />
-            <img src="./images/xuan2.jpeg" alt="" />
-            <img src="./images/xuan3.jpeg" alt="" />
-            <img src="./images/xuan4.jpeg" alt="" />
-            <img src="./images/xuan5.jpeg" alt="" />
-            <img src="./images/xuan6.jpeg" alt="" />
-            <img src="./images/xuan7.jpeg" alt="" />
-            <img src="./images/xuan8.jpeg" alt="" />
-            <img src="./images/xuan9.jpeg" alt="" />
-            <img src="./images/xuan10.jpeg" alt="" />
-            <img src="./images/xuan11.jpeg" alt="" />
-            <img src="./images/xuan12.jpeg" alt="" />
-            <img src="./images/xuan13.jpeg" alt="" />
-            <img src="./images/xuan14.jpeg" alt="" />
-            <img src="./images/xuan15.jpeg" alt="" />
-        
+        <img src="./images/xuan0.jpeg" alt="" />
+        <img src="./images/xuan1.jpeg" alt="" />
+        <img src="./images/xuan2.jpeg" alt="" />
+        <img src="./images/xuan3.jpeg" alt="" />
+        <img src="./images/xuan4.jpeg" alt="" />
+        <img src="./images/xuan5.jpeg" alt="" />
+        <img src="./images/xuan6.jpeg" alt="" />
+        <img src="./images/xuan7.jpeg" alt="" />
+        <img src="./images/xuan8.jpeg" alt="" />
+        <img src="./images/xuan9.jpeg" alt="" />
+        <!-- <img src="./images/xuan10.jpeg" alt="" />
+        <img src="./images/xuan11.jpeg" alt="" />
+        <img src="./images/xuan12.jpeg" alt="" />
+        <img src="./images/xuan13.jpeg" alt="" />
+        <img src="./images/xuan14.jpeg" alt="" />
+        <img src="./images/xuan15.jpeg" alt="" /> -->
+
         <!-- Example add video  -->
-        <video controls autoplay="autoplay" loop>
+        <!-- <video controls autoplay="autoplay" loop>
           <source
             src="https://player.vimeo.com/external/322244668.sd.mp4?s=338c48ac2dfcb1d4c0689968b5baf94eee6ca0c1&profile_id=165&oauth2_token_id=57447761"
             type="video/mp4"
           />
-        </video>
+        </video> -->
 
         <!-- Text at center of ground -->
         <p>3D Tiktok Carousel</p>
@@ -189,7 +183,6 @@
     </div>
 
     <div id="music-container"></div>
-
 
     <script>
       // Author: Hoang Tran (https://www.facebook.com/profile.php?id=100004848287494)
@@ -289,13 +282,13 @@
       }
 
       // setup events
-      document.onpointerdown = function(e) {
+      document.onpointerdown = function (e) {
         clearInterval(odrag.timer);
         e = e || window.event;
         var sX = e.clientX,
           sY = e.clientY;
 
-        this.onpointermove = function(e) {
+        this.onpointermove = function (e) {
           e = e || window.event;
           var nX = e.clientX,
             nY = e.clientY;
@@ -308,8 +301,8 @@
           sY = nY;
         };
 
-        this.onpointerup = function(e) {
-          odrag.timer = setInterval(function() {
+        this.onpointerup = function (e) {
+          odrag.timer = setInterval(function () {
             desX *= 0.95;
             desY *= 0.95;
             tX += desX * 0.1;
@@ -327,7 +320,7 @@
         return false;
       };
 
-      document.onmousewheel = function(e) {
+      document.onmousewheel = function (e) {
         e = e || window.event;
         var d = e.wheelDelta / 20 || -e.detail;
         radius += d;
